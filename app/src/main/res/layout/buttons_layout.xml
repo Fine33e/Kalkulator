@@ -212,8 +212,8 @@
         android:layout_marginBottom="2dp" />
 
     <Button
-        android:id="@+id/btn_Per"
-        android:text="%"
+        android:id="@+id/btn_char"
+        android:text="+/-"
         style="@style/FunctionalButtons"
         app:layout_row="4"
         app:layout_column="1"

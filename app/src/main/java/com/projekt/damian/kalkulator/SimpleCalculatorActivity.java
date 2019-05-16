@@ -25,17 +25,23 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
     private Button buttonEqual;
     private Button button10;
     private Button buttonC;
+    private Button button00;
+    private Button buttonchr;
     private Float mValueOne;
     private boolean mSubtract;
     private boolean mMultiplication;
     private boolean mDivision;
     private Float mValueTwo;
     private boolean mAddition;
+    private boolean mDot = false;
+    private boolean mChr = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.simple_activity);
 
+        buttonchr = findViewById(R.id.btn_char);
+        button00 = findViewById(R.id.btn_00);
         button0 = findViewById(R.id.btn_0);
         button1 = findViewById(R.id.btn_1);
         button2 = findViewById(R.id.btn_2);
@@ -126,6 +132,33 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
             }
         });
 
+        button00.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mEditText.setText(mEditText.getText() + "00");
+            }
+
+        });
+        button00.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mEditText.setText(mEditText.getText() + "00");
+            }
+
+        });
+        buttonchr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mChr == false) {
+                    mEditText.setText(mEditText.getText() + "-");
+                    mChr = true;
+                }else{
+                    mEditText.setText("");
+                    mChr = false;
+                }
+            }
+        });
+
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -198,13 +231,18 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mEditText.setText("");
+                mDot=false;
+                mChr=false;
             }
         });
 
         button10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditText.setText(mEditText.getText() + ".");
+                if(mDot==false) {
+                    mEditText.setText(mEditText.getText() + ".");
+                    mDot=true;
+                }
             }
         });
     }
