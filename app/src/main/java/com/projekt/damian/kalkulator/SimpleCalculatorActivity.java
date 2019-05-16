@@ -1,15 +1,12 @@
 package com.projekt.damian.kalkulator;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import java.io.InterruptedIOException;
-
-public class MainActivity extends AppCompatActivity {
+public class SimpleCalculatorActivity extends AppCompatActivity {
     private TextView mEditText;
     private Button button0;
     private Button button1;
@@ -39,22 +36,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button0 = findViewById(R.id.button0);
-        button1 =  findViewById(R.id.button1);
-        button2 =  findViewById(R.id.button2);
-        button3 =  findViewById(R.id.button3);
-        button4 =  findViewById(R.id.button4);
-        button5 =  findViewById(R.id.button5);
-        button6 =  findViewById(R.id.button6);
-        button7 =  findViewById(R.id.button7);
-        button8 =  findViewById(R.id.button8);
-        button9 =  findViewById(R.id.button9);
-        buttonAdd = findViewById(R.id.buttonAdd);
-        buttonSub = findViewById(R.id.buttonSub);
-        buttonMul = findViewById(R.id.buttonMul);
-        button10 = findViewById(R.id.button10);
-        buttonDivision = findViewById(R.id.buttonDiv);
-        buttonC = findViewById(R.id.buttonC);
+        button0 = findViewById(R.id.btn_0);
+        button1 = findViewById(R.id.btn_1);
+        button2 = findViewById(R.id.btn_2);
+        button3 = findViewById(R.id.btn_3);
+        button4 = findViewById(R.id.btn_4);
+        button5 = findViewById(R.id.btn_5);
+        button6 = findViewById(R.id.btn_6);
+        button7 = findViewById(R.id.btn_7);
+        button8 = findViewById(R.id.btn_8);
+        button9 = findViewById(R.id.btn_9);
+        buttonAdd = findViewById(R.id.btn_Sum);
+        buttonSub = findViewById(R.id.btn_Sub);
+        buttonMul = findViewById(R.id.btn_Mul);
+        button10 = findViewById(R.id.btn_Dot);
+        buttonDivision = findViewById(R.id.btn_Div);
+        buttonC = findViewById(R.id.btn_C);
         buttonEqual = findViewById(R.id.buttonEqual);
         mEditText =  findViewById(R.id.textView);
 
@@ -210,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
                 mEditText.setText(mEditText.getText() + ".");
             }
         });
-    }
+    }*/
 }
 
 
