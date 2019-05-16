@@ -34,7 +34,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.simple_activity);
 
         button0 = findViewById(R.id.btn_0);
         button1 = findViewById(R.id.btn_1);
@@ -52,8 +52,8 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         button10 = findViewById(R.id.btn_Dot);
         buttonDivision = findViewById(R.id.btn_Div);
         buttonC = findViewById(R.id.btn_C);
-        buttonEqual = findViewById(R.id.buttonEqual);
-        mEditText =  findViewById(R.id.textView);
+        buttonEqual = findViewById(R.id.btn_Equ);
+        mEditText = findViewById(R.id.tv_result);
 
 
         button1.setOnClickListener(new View.OnClickListener() {
@@ -207,7 +207,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
                 mEditText.setText(mEditText.getText() + ".");
             }
         });
-    }*/
+    }
 }
 
 
