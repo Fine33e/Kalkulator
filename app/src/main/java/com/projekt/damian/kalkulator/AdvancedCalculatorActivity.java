@@ -1,4 +1,129 @@
 package com.projekt.damian.kalkulator;
 
-public class AdvancedCalculatorActivity {
+import android.app.AppComponentFactory;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class AdvancedCalculatorActivity extends AppCompatActivity {
+
+
+    Button btn7, btn8, btn9, btnDiv, btn4, btn5, btn6, btnMul
+            , btn1, btn2, btn3, btnSub, btn0, btnDot, btn00, btnSum,
+            btnC, btnChar, btnEqu, btnSqrt, btnLog, btnLn, btnSin, btnCos,
+            btnTan, btnPer, btnX2, btnXY;
+    TextView tvInput, tvResult;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.advanced_activity);
+
+        btn0 = (Button) findViewById(R.id.btn_0);
+        btn1 = (Button) findViewById(R.id.btn_1);
+        btn2 = (Button) findViewById(R.id.btn_2);
+        btn3 = (Button) findViewById(R.id.btn_3);
+        btn4 = (Button) findViewById(R.id.btn_4);
+        btn5 = (Button) findViewById(R.id.btn_5);
+        btn6 = (Button) findViewById(R.id.btn_6);
+        btn7 = (Button) findViewById(R.id.btn_7);
+        btn8 = (Button) findViewById(R.id.btn_8);
+        btn9 = (Button) findViewById(R.id.btn_9);
+        btn00 = (Button) findViewById(R.id.btn_00);
+        btnDiv = (Button) findViewById(R.id.btn_Div);
+        btnMul = (Button) findViewById(R.id.btn_Mul);
+        btnSub = (Button) findViewById(R.id.btn_Sub);
+        btnDot = (Button) findViewById(R.id.btn_Dot);
+        btnSum = (Button) findViewById(R.id.btn_Sum);
+        btnC = (Button) findViewById(R.id.btn_C);
+        btnChar = (Button) findViewById(R.id.btn_char);
+        btnEqu = (Button) findViewById(R.id.btn_Equ);
+        btnSqrt = (Button) findViewById(R.id.btn_sqrt);
+        btnLog = (Button) findViewById(R.id.btn_log);
+        btnLn = (Button) findViewById(R.id.btn_ln);
+        btnSin = (Button) findViewById(R.id.btn_sin);
+        btnCos = (Button) findViewById(R.id.btn_cos);
+        btnTan = (Button) findViewById(R.id.btn_tan);
+        btnPer = (Button) findViewById(R.id.btn_per);
+        btnX2 = (Button) findViewById(R.id.btn_x2);
+        btnXY = (Button) findViewById(R.id.btn_xy);
+
+
+        btn0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("0");
+            }
+        });
+        btn00.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("00");
+            }
+        });
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("1");
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("2");
+            }
+        });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("3");
+            }
+        });
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("4");
+            }
+        });
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("5");
+            }
+        });
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("6");
+            }
+        });
+        btn7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("7");
+            }
+        });
+        btn8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("8");
+            }
+        });
+        btn9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("9");
+            }
+        });
+
+
+
+    }
+    void inputExpression(String value){
+        String expression = tvInput.getText().toString();
+        expression = expression + value;
+
+        tvInput.setText(expression);
+    }
 }
