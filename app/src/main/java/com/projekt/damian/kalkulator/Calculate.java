@@ -42,7 +42,7 @@ public class Calculate {
     }
 
     public void clickOperator(String operator) {
-        if(isGreaterThanZero() && isCommaAtEndString()) {
+        if(isBiggerThanZero() && isCommaAtEndString()) {
             if (screen.getText() == null) {
                 screen.setText(stringBuilder.append(operator).toString());
             } else {
@@ -63,11 +63,11 @@ public class Calculate {
             toast.show();
         }
     }
-    private boolean isGreaterThanZero() {
+    private boolean isBiggerThanZero() {
         return stringBuilder.length() > 0;
     }
 
-    private boolean isGreaterThanOne() {
+    private boolean isBiggerThanOne() {
         return stringBuilder.length() > 1;
     }
 
@@ -102,7 +102,7 @@ public class Calculate {
     }
 
     private void ifSecondNotComma(String input){
-        if(isGreaterThanOne()){
+        if(isBiggerThanOne()){
             if((stringBuilder.charAt(0)=='0' && !input.contains(".") && stringBuilder.charAt(1)!='.')){
                 stringBuilder.deleteCharAt(0);
             }
@@ -122,14 +122,14 @@ public class Calculate {
     }
 
     private boolean isNounAtFirstPosition(String input){
-        if(isGreaterThanZero()) {
+        if(isBiggerThanZero()) {
             return !(stringBuilder.charAt(0) == '0' && !stringBuilder.toString().contains(".") && input == "0");
         }
         return true;
     }
 
     private boolean isNumberFirstPosition(String input){
-        if(input.contains(".") && !stringBuilder.toString().contains(".") && isGreaterThanZero()) {
+        if(input.contains(".") && !stringBuilder.toString().contains(".") && isBiggerThanZero()) {
             return true;
         }
         else if(!input.contains(".")){
@@ -152,21 +152,21 @@ public class Calculate {
     }
 
     private boolean isJustZero(){
-        if(isGreaterThanZero()){
+        if(isBiggerThanZero()){
             if((stringBuilder.length()==1 && stringBuilder.charAt(0)=='0'))
                 return false;
         }
         return true;
     }
 
-    private boolean isGreaterThanZeroScreen(){
-        return screen.getText().length()>0 && isGreaterThanZero();
+    private boolean isBiggerThanZeroScreen(){
+        return screen.getText().length()>0 && isBiggerThanZero();
     }
 
 
 
     public void sum() {
-        if(isGreaterThanZeroScreen() && !divisionByZero() && isCommaAtEndString()) {
+        if(isBiggerThanZeroScreen() && !divisionByZero() && isCommaAtEndString()) {
             if(advanceFlag){
                 advanceFlag=false;
                 stringBuilder.append(')');
@@ -197,13 +197,13 @@ public class Calculate {
     }
 
     private boolean isPercent(){
-        if(isGreaterThanZero()){
+        if(isBiggerThanZero()){
             return !stringBuilder.toString().contains("%");
         }
         return true;
     }
     public void square() {
-        if(isGreaterThanZero() && !stringBuilder.toString().contains("^")){
+        if(isBiggerThanZero() && !stringBuilder.toString().contains("^")){
             stringBuilder.append('^');
             screen.setText(stringBuilder);
             stringBuilder = new StringBuilder("2");
@@ -215,7 +215,7 @@ public class Calculate {
     }
 
     public void plusMinus() {
-        if(isGreaterThanZero() && isCommaAtEndString() && isJustZero() && !advanceFlag) {
+        if(isBiggerThanZero() && isCommaAtEndString() && isJustZero() && !advanceFlag) {
             if (stringBuilder.toString().contains("-")) {
                 stringBuilder.delete(0, 2);
                 stringBuilder.deleteCharAt(stringBuilder.length() - 1);
@@ -248,7 +248,7 @@ public class Calculate {
     }
 
     public void percent() {
-        if(isPercent() && isGreaterThanZeroScreen()){
+        if(isPercent() && isBiggerThanZeroScreen()){
             stringBuilder.append('%');
             secondScreen.setText(stringBuilder);
         }
