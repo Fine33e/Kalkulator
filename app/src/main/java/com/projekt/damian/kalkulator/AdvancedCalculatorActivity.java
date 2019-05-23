@@ -3,11 +3,8 @@ package com.projekt.damian.kalkulator;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.mariuszgromada.math.mxparser.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +15,7 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
 
     private Calculate calculate;
     private Toast toast;
-    private final String TOAST_TEXT = "Nieprawidłowa operacja!";
+    private final String TOAST = "Wrong operation";
 
 
     @Override
@@ -42,7 +39,7 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
         setContentView(R.layout.advanced_activity);
         tvInput = (TextView) findViewById(R.id.tv_input);
         tvResult = (TextView) findViewById(R.id.tv_result);
-        toast = Toast.makeText(getApplicationContext(), TOAST_TEXT, Toast.LENGTH_LONG);
+        toast = Toast.makeText(getApplicationContext(), TOAST, Toast.LENGTH_LONG);
         calculate = new Calculate(tvInput,tvResult,toast);
 
 
@@ -82,6 +79,9 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
             case R.id.btn_9:
                 calculate.makeNumber("9");
                 break;
+            case R.id.btn_Dot:
+                calculate.makeNumber(".");
+                break;
 
         }
     }
@@ -105,6 +105,7 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
             case R.id.btn_xy:
                 calculate.clickOperator("^");
                 break;
+
         }
     }
     public void advanced(View view) {
@@ -132,8 +133,8 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
                 break;
         }
     }
-    public void pow(View v){
-        calculate.pow();
+    public void square(View v){
+        calculate.square();
     }
 
     public void percent(View v) {

@@ -29,7 +29,7 @@ public class Calculate {
         this.numberFlag = false;
     }
     public void makeNumber(String number) {
-        if(isNounAtFirstPosition(number) && isnumberFirstPosition(number) && isMinus() && fullSize() && isPercent()) {
+        if(isNounAtFirstPosition(number) && isNumberFirstPosition(number) && isMinus() && fullSize() && isPercent()) {
             stringBuilder.append(number);
             ifSecondNotComma(number);
             numberFlag=true;
@@ -128,7 +128,7 @@ public class Calculate {
         return true;
     }
 
-    private boolean isnumberFirstPosition(String input){
+    private boolean isNumberFirstPosition(String input){
         if(input.contains(".") && !stringBuilder.toString().contains(".") && isGreaterThanZero()) {
             return true;
         }
@@ -202,7 +202,7 @@ public class Calculate {
         }
         return true;
     }
-    public void pow() {
+    public void square() {
         if(isGreaterThanZero() && !stringBuilder.toString().contains("^")){
             stringBuilder.append('^');
             screen.setText(stringBuilder);
