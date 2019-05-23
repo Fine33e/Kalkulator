@@ -37,7 +37,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
     private boolean mDot = false;
     private boolean mChr = false;
     private boolean mEqual = false;
-
+    private double counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,88 +69,126 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditText.setText(mEditText.getText() + "1");
-                mChr = true;
+                if(counter<9) {
+                    mEditText.setText(mEditText.getText() + "1");
+                    mChr = true;
+                    counter++;
+                }
             }
         });
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditText.setText(mEditText.getText() + "2");
-                mChr = true;
+                if(counter<9) {
+                    mEditText.setText(mEditText.getText() + "2");
+                    mChr = true;
+                    counter++;
+                }
             }
         });
 
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditText.setText(mEditText.getText() + "3");
-                mChr = true;
+                if(counter<9) {
+                    mEditText.setText(mEditText.getText() + "3");
+                    mChr = true;
+                    counter++;
+                }
             }
         });
 
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditText.setText(mEditText.getText() + "4");
-                mChr = true;
+                if(counter<9) {
+                    mEditText.setText(mEditText.getText() + "4");
+                    mChr = true;
+                    counter++;
+                }
             }
         });
 
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditText.setText(mEditText.getText() + "5");
-                mChr = true;
+                if(counter<9) {
+                    mEditText.setText(mEditText.getText() + "5");
+                    mChr = true;
+                    counter++;
+                }
             }
         });
 
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditText.setText(mEditText.getText() + "6");
-                mChr = true;
+                if (counter < 9) {
+                    mEditText.setText(mEditText.getText() + "6");
+                    mChr = true;
+                    counter++;
+                }
             }
         });
 
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditText.setText(mEditText.getText() + "7");
-                mChr = true;
+                if (counter < 9) {
+                    mEditText.setText(mEditText.getText() + "7");
+                    mChr = true;
+                    counter++;
+                }
             }
         });
 
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditText.setText(mEditText.getText() + "8");
-                mChr = true;
+                if (counter < 9) {
+                    mEditText.setText(mEditText.getText() + "8");
+                    mChr = true;
+                    counter++;
+                }
             }
         });
 
         button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditText.setText(mEditText.getText() + "9");
-                mChr = true;
+                if (counter < 9) {
+                    mEditText.setText(mEditText.getText() + "9");
+                    mChr = true;
+                    counter++;
+                }
             }
         });
 
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditText.setText(mEditText.getText() + "0");
-                mChr = true;
+                if(counter<9) {
+                    if (!mEditText.getText().equals("0")) {
+                        mEditText.setText(mEditText.getText() + "0");
+                        mChr = true;
+                        counter++;
+                    }
+                }
             }
         });
 
         button00.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditText.setText(mEditText.getText() + "00");
-                mChr = true;
+                if(counter<9){
+                if(!mEditText.getText().equals("")&&!mEditText.getText().equals("0")) {
+                    mEditText.setText(mEditText.getText() + "00");
+                    mChr = true;
+                    counter++;
+                    counter++;
+                }
+                }
             }
 
         });
@@ -168,13 +206,15 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (mEditText == null) {
-                    mEditText.setText("");
-                } else {
-                    mValueOne = Float.parseFloat(mEditText.getText() + "");
-                    mAddition = true;
-                    mEditText.setText(null);
+                if (!mEditText.getText().equals("")) {
+                    if (mEditText == null) {
+                        mEditText.setText("");
+                    } else {
+                        mValueOne = Float.parseFloat(mEditText.getText() + "");
+                        mAddition = true;
+                        mEditText.setText(null);
+                        counter =0;
+                    }
                 }
             }
         });
@@ -182,37 +222,50 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         buttonSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mValueOne = Float.parseFloat(mEditText.getText() + "");
-                mSubtract = true;
-                mEditText.setText(null);
+                if(!mEditText.getText().equals("")) {
+                    mValueOne = Float.parseFloat(mEditText.getText() + "");
+                    mSubtract = true;
+                    mEditText.setText(null);
+                    counter = 0;
+                }
             }
         });
 
         buttonMul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mValueOne = Float.parseFloat(mEditText.getText() + "");
-                mMultiplication = true;
-                mEditText.setText(null);
+                if(!mEditText.getText().equals("")) {
+                    mValueOne = Float.parseFloat(mEditText.getText() + "");
+                    mMultiplication = true;
+                    mEditText.setText(null);
+                    counter=0;
+                }
             }
         });
 
         buttonDivision.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                mValueOne = Float.parseFloat(mEditText.getText() + "");
-                mDivision = true;
-                mEditText.setText(null);
+                if (!mEditText.getText().equals("")) {
+                    mValueOne = Float.parseFloat(mEditText.getText() + "");
+                    mDivision = true;
+                    mEditText.setText(null);
+                    counter=0;
+                }
             }
         });
 
         button10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mDot == false && mEqual == false) {
-                    mEditText.setText(mEditText.getText() + ".");
+                if(mEditText.getText().equals("")) {
+                    mEditText.setText(mEditText.getText() + "0.");
                     mDot = true;
+                }else {
+                    if (mDot == false && mEqual == false) {
+                        mEditText.setText(mEditText.getText() + ".");
+                        mDot = true;
+                    }
                 }
             }
         });
@@ -224,45 +277,47 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
                 mDot = false;
                 mChr = false;
                 mEqual = false;
+                counter=0;
             }
         });
         buttonEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                mValueTwo = Float.parseFloat(mEditText.getText() + "");
-
-                if (mAddition == true) {
-                    mEditText.setText(mValueOne + mValueTwo + "");
-                    mAddition = false;
-                    mDot = false;
-                    mEqual = true;
-                }
-
-                if (mSubtract == true) {
-                    mEditText.setText(mValueOne - mValueTwo + "");
-                    mSubtract = false;
-                    mDot = false;
-                    mEqual = true;
-                }
-
-                if (mMultiplication == true) {
-                    mEditText.setText(mValueOne * mValueTwo + "");
-                    mMultiplication = false;
-                    mDot = false;
-                    mEqual = true;
-                }
-
-                if (mDivision == true) {
-                    if (mValueTwo > 0) {
-                        mEditText.setText(mValueOne / mValueTwo + "");
-                        mDivision = false;
+                if (!mEditText.getText().equals("")) {
+                    mValueTwo = Float.parseFloat(mEditText.getText() + "");
+                    counter=0;
+                    if (mAddition == true) {
+                        mEditText.setText(mValueOne + mValueTwo + "");
+                        mAddition = false;
                         mDot = false;
                         mEqual = true;
-                    } else {
-                        toastMsg("nie dziel przez 0");
                     }
 
+                    if (mSubtract == true) {
+                        mEditText.setText(mValueOne - mValueTwo + "");
+                        mSubtract = false;
+                        mDot = false;
+                        mEqual = true;
+                    }
+
+                    if (mMultiplication == true) {
+                        mEditText.setText(mValueOne * mValueTwo + "");
+                        mMultiplication = false;
+                        mDot = false;
+                        mEqual = true;
+                    }
+
+                    if (mDivision == true) {
+                        if (mValueTwo > 0) {
+                            mEditText.setText(mValueOne / mValueTwo + "");
+                            mDivision = false;
+                            mDot = false;
+                            mEqual = true;
+                        } else {
+                            toastMsg("nie dziel przez 0");
+                        }
+
+                    }
                 }
             }
         });
