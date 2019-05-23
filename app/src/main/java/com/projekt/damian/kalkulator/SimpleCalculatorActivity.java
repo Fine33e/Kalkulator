@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class SimpleCalculatorActivity extends AppCompatActivity {
     private TextView mEditText;
     private Button button0;
@@ -38,7 +41,18 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
     private boolean mChr = false;
     private boolean mEqual = false;
     private double counter = 0;
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        ArrayList<String> arrayList = savedInstanceState.getStringArrayList("backup");
+        mEditText.setText(arrayList.get(0));
+        super.onRestoreInstanceState(savedInstanceState);
+    }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putStringArrayList("backup", new ArrayList<>(Arrays.asList(mEditText.getText().toString())));
+        super.onSaveInstanceState(outState);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
