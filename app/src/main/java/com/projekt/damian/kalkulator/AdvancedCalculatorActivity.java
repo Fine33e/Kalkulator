@@ -1,11 +1,12 @@
 package com.projekt.damian.kalkulator;
 
-import android.app.AppComponentFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import org.mariuszgromada.math.mxparser.*;
 
 public class AdvancedCalculatorActivity extends AppCompatActivity {
 
@@ -20,37 +21,37 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.advanced_activity);
 
-        btn0 = (Button) findViewById(R.id.btn_0);
-        btn1 = (Button) findViewById(R.id.btn_1);
-        btn2 = (Button) findViewById(R.id.btn_2);
-        btn3 = (Button) findViewById(R.id.btn_3);
-        btn4 = (Button) findViewById(R.id.btn_4);
-        btn5 = (Button) findViewById(R.id.btn_5);
-        btn6 = (Button) findViewById(R.id.btn_6);
-        btn7 = (Button) findViewById(R.id.btn_7);
-        btn8 = (Button) findViewById(R.id.btn_8);
-        btn9 = (Button) findViewById(R.id.btn_9);
-        btn00 = (Button) findViewById(R.id.btn_00);
-        btnDiv = (Button) findViewById(R.id.btn_Div);
-        btnMul = (Button) findViewById(R.id.btn_Mul);
-        btnSub = (Button) findViewById(R.id.btn_Sub);
-        btnDot = (Button) findViewById(R.id.btn_Dot);
-        btnSum = (Button) findViewById(R.id.btn_Sum);
-        btnC = (Button) findViewById(R.id.btn_C);
-        btnChar = (Button) findViewById(R.id.btn_char);
-        btnEqu = (Button) findViewById(R.id.btn_Equ);
-        btnSqrt = (Button) findViewById(R.id.btn_sqrt);
-        btnLog = (Button) findViewById(R.id.btn_log);
-        btnLn = (Button) findViewById(R.id.btn_ln);
-        btnSin = (Button) findViewById(R.id.btn_sin);
-        btnCos = (Button) findViewById(R.id.btn_cos);
-        btnTan = (Button) findViewById(R.id.btn_tan);
-        btnPer = (Button) findViewById(R.id.btn_per);
-        btnX2 = (Button) findViewById(R.id.btn_x2);
-        btnXY = (Button) findViewById(R.id.btn_xy);
+        btn0 = findViewById(R.id.btn_0);
+        btn1 = findViewById(R.id.btn_1);
+        btn2 = findViewById(R.id.btn_2);
+        btn3 = findViewById(R.id.btn_3);
+        btn4 = findViewById(R.id.btn_4);
+        btn5 = findViewById(R.id.btn_5);
+        btn6 = findViewById(R.id.btn_6);
+        btn7 = findViewById(R.id.btn_7);
+        btn8 = findViewById(R.id.btn_8);
+        btn9 = findViewById(R.id.btn_9);
+        btn00 = findViewById(R.id.btn_00);
+        btnDiv = findViewById(R.id.btn_Div);
+        btnMul = findViewById(R.id.btn_Mul);
+        btnSub = findViewById(R.id.btn_Sub);
+        btnDot = findViewById(R.id.btn_Dot);
+        btnSum = findViewById(R.id.btn_Sum);
+        btnC = findViewById(R.id.btn_C);
+        btnChar = findViewById(R.id.btn_char);
+        btnEqu = findViewById(R.id.btn_Equ);
+        btnSqrt = findViewById(R.id.btn_sqrt);
+        btnLog = findViewById(R.id.btn_log);
+        btnLn = findViewById(R.id.btn_ln);
+        btnSin = findViewById(R.id.btn_sin);
+        btnCos = findViewById(R.id.btn_cos);
+        btnTan = findViewById(R.id.btn_tan);
+        btnPer = findViewById(R.id.btn_per);
+        btnX2 = findViewById(R.id.btn_x2);
+        btnXY = findViewById(R.id.btn_xy);
 
-        tvInput = (TextView) findViewById(R.id.tv_input);
-        tvResult = (TextView) findViewById(R.id.tv_result);
+        tvInput = findViewById(R.id.tv_input);
+        tvResult = findViewById(R.id.tv_result);
 
         clearScreen();
 
@@ -144,6 +145,12 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
                 inputExpression("+");
             }
         });
+        btnDot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression(".");
+            }
+        });
         btnC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,7 +166,12 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
         btnEqu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                inputExpression("=");
+                String expression = tvInput.getText().toString();
+
+                Expression e = new Expression(expression);
+                String result = String.valueOf(e.calculate());
+
+                tvResult.setText(result);
             }
         });
         btnSqrt.setOnClickListener(new View.OnClickListener() {

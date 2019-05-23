@@ -52,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
         toastMsg("Damian Dłuski 202137");
 
     }
+
+    public void exit(View view) {
+        finish();
+        System.exit(0);
+    }
 }
 
 

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SimpleCalculatorActivity extends AppCompatActivity {
     private TextView mEditText;
@@ -35,6 +36,9 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
     private boolean mAddition;
     private boolean mDot = false;
     private boolean mChr = false;
+    private boolean mEqual = false;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +70,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mEditText.setText(mEditText.getText() + "1");
+                mChr = true;
             }
         });
 
@@ -73,6 +78,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mEditText.setText(mEditText.getText() + "2");
+                mChr = true;
             }
         });
 
@@ -80,6 +86,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mEditText.setText(mEditText.getText() + "3");
+                mChr = true;
             }
         });
 
@@ -87,6 +94,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mEditText.setText(mEditText.getText() + "4");
+                mChr = true;
             }
         });
 
@@ -94,6 +102,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mEditText.setText(mEditText.getText() + "5");
+                mChr = true;
             }
         });
 
@@ -101,6 +110,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mEditText.setText(mEditText.getText() + "6");
+                mChr = true;
             }
         });
 
@@ -108,6 +118,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mEditText.setText(mEditText.getText() + "7");
+                mChr = true;
             }
         });
 
@@ -115,6 +126,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mEditText.setText(mEditText.getText() + "8");
+                mChr = true;
             }
         });
 
@@ -122,6 +134,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mEditText.setText(mEditText.getText() + "9");
+                mChr = true;
             }
         });
 
@@ -129,6 +142,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mEditText.setText(mEditText.getText() + "0");
+                mChr = true;
             }
         });
 
@@ -136,25 +150,17 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mEditText.setText(mEditText.getText() + "00");
+                mChr = true;
             }
 
         });
-        button00.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mEditText.setText(mEditText.getText() + "00");
-            }
 
-        });
         buttonchr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mChr == false) {
+                if (mChr == false && mEqual == false) {
                     mEditText.setText(mEditText.getText() + "-");
                     mChr = true;
-                }else{
-                    mEditText.setText("");
-                    mChr = false;
                 }
             }
         });
@@ -194,35 +200,19 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         buttonDivision.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 mValueOne = Float.parseFloat(mEditText.getText() + "");
                 mDivision = true;
                 mEditText.setText(null);
             }
         });
 
-        buttonEqual.setOnClickListener(new View.OnClickListener() {
+        button10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mValueTwo = Float.parseFloat(mEditText.getText() + "");
-
-                if (mAddition == true) {
-                    mEditText.setText(mValueOne + mValueTwo + "");
-                    mAddition = false;
-                }
-
-                if (mSubtract == true) {
-                    mEditText.setText(mValueOne - mValueTwo + "");
-                    mSubtract = false;
-                }
-
-                if (mMultiplication == true) {
-                    mEditText.setText(mValueOne * mValueTwo + "");
-                    mMultiplication = false;
-                }
-
-                if (mDivision == true) {
-                    mEditText.setText(mValueOne / mValueTwo + "");
-                    mDivision = false;
+                if (mDot == false && mEqual == false) {
+                    mEditText.setText(mEditText.getText() + ".");
+                    mDot = true;
                 }
             }
         });
@@ -231,20 +221,60 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mEditText.setText("");
-                mDot=false;
-                mChr=false;
+                mDot = false;
+                mChr = false;
+                mEqual = false;
             }
         });
-
-        button10.setOnClickListener(new View.OnClickListener() {
+        buttonEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mDot==false) {
-                    mEditText.setText(mEditText.getText() + ".");
-                    mDot=true;
+
+                mValueTwo = Float.parseFloat(mEditText.getText() + "");
+
+                if (mAddition == true) {
+                    mEditText.setText(mValueOne + mValueTwo + "");
+                    mAddition = false;
+                    mDot = false;
+                    mEqual = true;
+                }
+
+                if (mSubtract == true) {
+                    mEditText.setText(mValueOne - mValueTwo + "");
+                    mSubtract = false;
+                    mDot = false;
+                    mEqual = true;
+                }
+
+                if (mMultiplication == true) {
+                    mEditText.setText(mValueOne * mValueTwo + "");
+                    mMultiplication = false;
+                    mDot = false;
+                    mEqual = true;
+                }
+
+                if (mDivision == true) {
+                    if (mValueTwo > 0) {
+                        mEditText.setText(mValueOne / mValueTwo + "");
+                        mDivision = false;
+                        mDot = false;
+                        mEqual = true;
+                    } else {
+                        toastMsg("nie dziel przez 0");
+                    }
+
                 }
             }
         });
+
+
+    }
+
+    public void toastMsg(String msg) {
+
+        Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
+        toast.show();
+
     }
 }
 
