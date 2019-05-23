@@ -49,6 +49,10 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
         btnX2 = (Button) findViewById(R.id.btn_x2);
         btnXY = (Button) findViewById(R.id.btn_xy);
 
+        tvInput = (TextView) findViewById(R.id.tv_input);
+        tvResult = (TextView) findViewById(R.id.tv_result);
+
+        clearScreen();
 
         btn0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,9 +120,110 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
                 inputExpression("9");
             }
         });
+        btnDiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("/");
+            }
+        });
+        btnMul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("*");
+            }
+        });
+        btnSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("-");
+            }
+        });
+        btnSum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("+");
+            }
+        });
+        btnC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearScreen();
+            }
+        });
+        btnChar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("+/-");
+            }
+        });
+        btnEqu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("=");
+            }
+        });
+        btnSqrt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("sqrt(");
+            }
+        });
+        btnLog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("log(");
+            }
+        });
+        btnLn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("ln(");
+            }
+        });
+        btnSin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("sin(");
+            }
+        });
+        btnCos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("cos(");
+            }
+        });
+        btnTan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("tan(");
+            }
+        });
+        btnPer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("%");
+            }
+        });
+        btnX2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("^2");
+            }
+        });
+        btnXY.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputExpression("^");
+            }
+        });
 
 
 
+    }
+
+    void clearScreen() {
+        tvInput.setText("");
+        tvResult.setText("0");
     }
     void inputExpression(String value){
         String expression = tvInput.getText().toString();
