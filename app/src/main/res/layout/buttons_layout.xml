@@ -107,6 +107,7 @@
         android:id="@+id/btn_1"
         android:text="1"
         style="@style/FunctionalButtons"
+        android:onClick="click"
         app:layout_row="2"
         app:layout_column="0"
         app:layout_columnWeight="1"
